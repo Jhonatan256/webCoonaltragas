@@ -1,0 +1,17 @@
+/* Dialogs full-screen en móviles */
+@media (max-width: 640px) {
+	.p-dialog.full-screen-dialog {
+		margin: 0 !important;
+		width: 100vw !important;
+		max-width: 100vw !important;
+		height: 100vh !important;
+		max-height: 100vh !important;
+		display: flex;
+		flex-direction: column;
+	}
+	.p-dialog.full-screen-dialog .p-dialog-content {
+		flex: 1 1 auto !important;
+		overflow: auto !important;
+		padding: 0 !important;
+	}
+}

@@ -1,0 +1,334 @@
+/* (Eliminado bloque duplicado de estilos navbar/timer/text-center) */
+
+/* Stepper panel validado */
+.p-stepper .p-stepper-header.step-validated .p-stepper-number {
+  background: #16a34a !important; /* verde */
+  border-color: #16a34a !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 2px #bbf7d0;
+}
+
+/* Panel bloqueado (overlay visual ligera) */
+.panel-locked {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.55;
+}
+.panel-locked:after {
+  content: "Datos guardados";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: rgba(22, 163, 74, 0.9);
+  color: #fff;
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+/* Navbar de Actualizacion */
+.app-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.app-navbar h2 {
+  font-weight: 600;
+  color: #0d3c61;
+}
+
+#timer-text {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+.text-center {
+  text-align: center;
+}
+
+/* Ocultar título en celular */
+@media (max-width: 576px) {
+  .app-navbar h2 {
+    display: none !important;
+  }
+  /* En móvil mostrar solo el número del tiempo restante */
+  .timer-box .timer-label,
+  .timer-box .timer-expired {
+    display: none !important;
+  }
+  .timer-box #timer-text {
+    font-weight: 700;
+  }
+  /* Ocultar la barra de progreso en móvil */
+  .timer-box .p-progressbar {
+    display: none !important;
+  }
+  /* Evitar ancho mínimo forzado del contenedor del timer en móvil */
+  .timer-box {
+    min-width: 0 !important;
+  }
+}
+
+/* Tabla beneficiarios responsive */
+.beneficiarios-table th,
+.beneficiarios-table td {
+  padding: 0.5rem;
+  white-space: nowrap;
+}
+
+.beneficiarios-table th {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .beneficiarios-table {
+    font-size: 0.85rem;
+    min-width: 900px; /* asegura todas las columnas en una fila */
+  }
+}
+
+/* Wrapper para permitir scroll horizontal en pantallas pequeñas */
+.responsive-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Opcional: ajustar padding en pantallas pequeñas para más espacio */
+@media (max-width: 480px) {
+  .beneficiarios-table th,
+  .beneficiarios-table td {
+    padding: 0.35rem;
+  }
+}
+
+/* Layout responsive para móvil: ocupar 100% del ancho */
+@media (max-width: 768px) {
+  .app-card-responsive {
+    width: 100% !important;
+    border-radius: 0;
+  }
+  .login-wrapper {
+    background: #fff !important;
+  }
+
+  .stepper-responsive {
+    flex-basis: auto !important;
+    width: 100% !important;
+  }
+
+  /* Ajuste del wrapper central para que no limite el ancho */
+  .flex.justify-content-center.flex-auto {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* ===== Modo compacto para inputs y controles ===== */
+.compact-form {
+  --compact-font-size: 0.875rem; /* ~14px */
+  --compact-padding-y: 0.35rem;
+  --compact-padding-x: 0.5rem;
+  --compact-input-height: 2rem; /* ~32px */
+}
+
+.compact-form .p-inputtext,
+.compact-form .p-dropdown,
+.compact-form .p-multiselect,
+.compact-form .p-calendar .p-inputtext,
+.compact-form .p-inputnumber .p-inputtext,
+.compact-form .p-password .p-inputtext,
+.compact-form .p-autocomplete .p-inputtext,
+.compact-form .p-chips .p-inputtext,
+/* Permitir aplicar la clase directamente al control */
+.p-inputtext.compact-form,
+.p-dropdown.compact-form,
+.p-multiselect.compact-form,
+.p-calendar .p-inputtext.compact-form,
+.p-inputnumber .p-inputtext.compact-form,
+.p-password .p-inputtext.compact-form,
+.p-autocomplete .p-inputtext.compact-form,
+.p-chips .p-inputtext.compact-form {
+  font-size: var(--compact-font-size);
+  padding: var(--compact-padding-y) var(--compact-padding-x);
+  height: var(--compact-input-height);
+}
+
+/* Ajustar etiquetas y textos auxiliares */
+.compact-form label,
+.compact-form .p-field label,
+.compact-form .p-error,
+.compact-form small {
+  font-size: 0.85rem;
+}
+
+/* Dropdown label interno */
+.compact-form .p-dropdown .p-dropdown-label,
+.p-dropdown.compact-form .p-dropdown-label {
+  padding: 0 !important;
+  line-height: calc(var(--compact-input-height) - 2px);
+}
+
+/* Dropdown trigger (icono flecha) */
+.compact-form .p-dropdown .p-dropdown-trigger,
+.p-dropdown.compact-form .p-dropdown-trigger {
+  width: 2rem;
+}
+
+/* MultiSelect label */
+.compact-form .p-multiselect .p-multiselect-label,
+.p-multiselect.compact-form .p-multiselect-label {
+  padding: 0 0.25rem;
+  line-height: calc(var(--compact-input-height) - 2px);
+}
+
+/* Chips del MultiSelect */
+.compact-form .p-chip {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.35rem;
+}
+
+/* Calendario: icono y entrada */
+.compact-form .p-calendar .p-inputtext,
+.p-calendar .p-inputtext.compact-form {
+  padding-right: 2rem; /* espacio para el icono */
+}
+.compact-form .p-calendar .p-datepicker-trigger,
+.p-calendar.compact-form .p-datepicker-trigger {
+  width: 2rem;
+}
+
+/* RadioButton y Checkbox: tamaño de labels */
+.compact-form .p-radiobutton + label,
+.compact-form input[type="checkbox"] + label {
+  font-size: 0.875rem;
+}
+
+/* Botones más compactos */
+.compact-form .p-button {
+  font-size: 0.875rem;
+  padding: 0.4rem 0.75rem;
+  height: 2.1rem;
+}
+
+/* Stepper headers más delgados */
+.compact-form .p-stepper .p-stepper-header {
+  padding: 0.5rem 0.75rem;
+}
+
+/* Tablas compactas: padding de celdas */
+.compact-form table td,
+.compact-form table th {
+  padding: 0.4rem 0.5rem;
+}
+
+.p-stepper.p-stepper-vertical .p-stepper-panel:last-of-type .p-stepper-content {
+  padding-left: 1rem;
+}
+.p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-content {
+  padding-left: 0rem;
+}
+
+/* ===== KPI Cards: colores y estilo ===== */
+.kpi-card.p-card,
+.kpi-card {
+  color: #ffffff;
+  border: 0 !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.kpi-card .p-card-title,
+.kpi-card .p-card-subtitle,
+.kpi-card .p-card-content {
+  color: #ffffff !important;
+}
+
+.kpi-card .p-card-subtitle {
+  opacity: 0.9;
+}
+
+/* Paletas por tarjeta */
+.kpi-total {
+  /* Azul corporativo */
+  background: linear-gradient(135deg, #2774b6 0%, #1f5e91 100%);
+}
+
+.kpi-updated {
+  /* Verde corporativo */
+  background: linear-gradient(135deg, #54a54b 0%, #3f7e38 100%);
+}
+
+.kpi-percent {
+  /* Amarillo corporativo */
+  background: linear-gradient(135deg, #efb925 0%, #d39f1b 100%);
+}
+
+.kpi-negative {
+  /* Rojo corporativo */
+  background: linear-gradient(135deg, #d9402a 0%, #b23422 100%);
+}
+
+/* ===== App Footer ===== */
+:root {
+  --app-footer-h: 64px;
+}
+
+.app-footer {
+  margin-top: 0;
+  padding: 0 0;
+  height: var(--app-footer-h);
+  background: #1d204a1c; /* color corporativo */
+  color: #000000;      /* gray-200 */
+  /* position: fixed; */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+.app-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 1rem;
+}
+.app-footer .link {
+  color: #93c5fd; /* blue-300 */
+  text-decoration: none;
+}
+.app-footer .link:hover {
+  color: #bfdbfe; /* blue-200 */
+  text-decoration: underline;
+}
+
+/* Evita que el footer fijo tape el contenido */
+.with-app-footer {
+  padding-bottom: var(--app-footer-h);
+}
+
+/* Dialog a pantalla completa al maximizar */
+.full-screen-dialog.p-dialog-maximized {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+}
+.full-screen-dialog.p-dialog-maximized .p-dialog-header {
+  /* altura referencial del header */
+  min-height: 3rem;
+}
+.full-screen-dialog.p-dialog-maximized .p-dialog-content {
+  padding: 0 !important;
+  height: calc(100vh - 3rem); /* 100% de alto menos header */
+}
+.full-screen-dialog.p-dialog-maximized iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+}

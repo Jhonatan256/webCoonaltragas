@@ -1,0 +1,695 @@
+{
+  "direcciones": [
+    {
+      "descripcion": "Calle",
+      "nomenclatura_dian": "CL",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Carrera",
+      "nomenclatura_dian": "CR",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Administración",
+      "nomenclatura_dian": "AD",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Aeropuerto",
+      "nomenclatura_dian": "AER",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Agencia",
+      "nomenclatura_dian": "AG",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Agrupación",
+      "nomenclatura_dian": "AGP",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Al lado",
+      "nomenclatura_dian": "ALD",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Almacén",
+      "nomenclatura_dian": "ALM",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Altillo",
+      "nomenclatura_dian": "AL",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Apartado",
+      "nomenclatura_dian": "APTDO",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Apartamento",
+      "nomenclatura_dian": "AP",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Atrás",
+      "nomenclatura_dian": "ATR",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Autopista",
+      "nomenclatura_dian": "AUT",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Avenida",
+      "nomenclatura_dian": "AV",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Avenida calle",
+      "nomenclatura_dian": "AC",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Avenida carrera",
+      "nomenclatura_dian": "AK",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Barrio",
+      "nomenclatura_dian": "BRR",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Bloque",
+      "nomenclatura_dian": "BL",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Bodega",
+      "nomenclatura_dian": "BG",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Boulevard",
+      "nomenclatura_dian": "BLV",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Camino",
+      "nomenclatura_dian": "CN",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+
+    {
+      "descripcion": "Carretera",
+      "nomenclatura_dian": "CRT",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Casa",
+      "nomenclatura_dian": "CA",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Caserío",
+      "nomenclatura_dian": "CAS",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Célula",
+      "nomenclatura_dian": "CEL",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Centro",
+      "nomenclatura_dian": "CEN",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Centro comercial",
+      "nomenclatura_dian": "CC",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Circular",
+      "nomenclatura_dian": "CIR",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Circunvalar",
+      "nomenclatura_dian": "CRV",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Ciudadela",
+      "nomenclatura_dian": "CD",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Conjunto",
+      "nomenclatura_dian": "CONJ",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Conjunto residencial",
+      "nomenclatura_dian": "CON",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Consultorio",
+      "nomenclatura_dian": "CS",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Corregimiento",
+      "nomenclatura_dian": "CRR",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Departamento",
+      "nomenclatura_dian": "DPTO",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Depósito",
+      "nomenclatura_dian": "DP",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Depósito sótano",
+      "nomenclatura_dian": "DS",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Diagonal",
+      "nomenclatura_dian": "DG",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Edificio",
+      "nomenclatura_dian": "ED",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Entrada",
+      "nomenclatura_dian": "EN",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Escalera",
+      "nomenclatura_dian": "ESC",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Esquina",
+      "nomenclatura_dian": "ESQ",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Este",
+      "nomenclatura_dian": "ESTE",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Etapa",
+      "nomenclatura_dian": "ET",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Exterior",
+      "nomenclatura_dian": "EX",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Finca",
+      "nomenclatura_dian": "FCA",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Garaje",
+      "nomenclatura_dian": "GJ",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Garaje sótano",
+      "nomenclatura_dian": "GS",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Glorieta",
+      "nomenclatura_dian": "GT",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Hacienda",
+      "nomenclatura_dian": "HC",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Hangar",
+      "nomenclatura_dian": "HG",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Inspección de Policía",
+      "nomenclatura_dian": "IP",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Inspección Departamental",
+      "nomenclatura_dian": "IPD",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Inspección Municipal",
+      "nomenclatura_dian": "IPM",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Interior",
+      "nomenclatura_dian": "IN",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Kilómetro",
+      "nomenclatura_dian": "KM",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Local",
+      "nomenclatura_dian": "LC",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Local mezzanine",
+      "nomenclatura_dian": "LM",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Lote",
+      "nomenclatura_dian": "LT",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Manzana",
+      "nomenclatura_dian": "MZ",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Mezzanine",
+      "nomenclatura_dian": "MN",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Módulo",
+      "nomenclatura_dian": "MD",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Mojón",
+      "nomenclatura_dian": "MJ",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Muelle",
+      "nomenclatura_dian": "MLL",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Municipio",
+      "nomenclatura_dian": "MCP",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Norte",
+      "nomenclatura_dian": "NORTE",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Occidente",
+      "nomenclatura_dian": "OCC",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Oeste",
+      "nomenclatura_dian": "OESTE",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Oficina",
+      "nomenclatura_dian": "OF",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Oriente",
+      "nomenclatura_dian": "O",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Otra Nomenclatura",
+      "nomenclatura_dian": " (!)",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Paraje",
+      "nomenclatura_dian": "PRJ",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Parcela",
+      "nomenclatura_dian": "PA",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Park Way",
+      "nomenclatura_dian": "PW",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Parque",
+      "nomenclatura_dian": "PAR",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Parqueadero",
+      "nomenclatura_dian": "PQ",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Pasaje",
+      "nomenclatura_dian": "PJ",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Paseo",
+      "nomenclatura_dian": "PS",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Penthouse",
+      "nomenclatura_dian": "PH",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Piso",
+      "nomenclatura_dian": "P",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Planta",
+      "nomenclatura_dian": "PL",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Portería",
+      "nomenclatura_dian": "POR",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Poste",
+      "nomenclatura_dian": "POS",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Plaza de Mercado",
+      "nomenclatura_dian": "PM",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Predio",
+      "nomenclatura_dian": "PD",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Puente",
+      "nomenclatura_dian": "PN",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Puesto",
+      "nomenclatura_dian": "PT",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Round Point",
+      "nomenclatura_dian": "RP",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Salón",
+      "nomenclatura_dian": "SA",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Salón comunal",
+      "nomenclatura_dian": "SC",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Sector",
+      "nomenclatura_dian": "SEC",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Semisótano",
+      "nomenclatura_dian": "SS",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Solar",
+      "nomenclatura_dian": "SL",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Sótano",
+      "nomenclatura_dian": "ST",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Suite",
+      "nomenclatura_dian": "SU",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Súper manzana",
+      "nomenclatura_dian": "SM",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Sur",
+      "nomenclatura_dian": "SUR",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Terminal",
+      "nomenclatura_dian": "TER",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Terraza",
+      "nomenclatura_dian": "TZ",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Torre",
+      "nomenclatura_dian": "TO",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Transversal",
+      "nomenclatura_dian": "TV",
+      "solicita_nombre": "NO",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Unidad",
+      "nomenclatura_dian": "UN",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Unidad residencial",
+      "nomenclatura_dian": "UR",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Urbanización",
+      "nomenclatura_dian": "URB",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Variante",
+      "nomenclatura_dian": "VTE",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Vereda",
+      "nomenclatura_dian": "VDA",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Vía",
+      "nomenclatura_dian": "VIA",
+      "solicita_nombre": "SI",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Vías de nombre común",
+      "nomenclatura_dian": "NOMBRE VIA",
+      "solicita_nombre": "NO",
+      "vista": "lista"
+    },
+    {
+      "descripcion": "Zona",
+      "nomenclatura_dian": "ZN",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    },
+    {
+      "descripcion": "Zona franca",
+      "nomenclatura_dian": "ZF",
+      "solicita_nombre": "SI",
+      "vista": "boton"
+    }
+  ],
+
+  "ubicacion": [
+    {
+      "descripcion": "--- Seleccionar --",
+      "nomenclatrua": "Select"
+    },
+    {
+      "descripcion": "Norte",
+      "nomenclatrua": "Nort",
+      "borrar": "SI"
+    },
+
+    {
+      "descripcion": "Sur",
+      "nomenclatrua": "Sur",
+      "borrar": "SI"
+    },
+
+    {
+      "descripcion": "Oriente",
+      "nomenclatrua": "Orit",
+      "borrar": "SI"
+    },
+
+    {
+      "descripcion": "Occidente",
+      "nomenclatrua": "Occ",
+      "borrar": "SI"
+    }
+  ]
+}

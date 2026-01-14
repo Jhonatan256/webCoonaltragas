@@ -1,0 +1,521 @@
+<StepperPanel header="Datos adicionales">
+              <div
+                className={`flex flex-column ${
+                  isPanelLocked(2) ? "panel-locked" : ""
+                }`}
+              >
+                <div className="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium p-3">
+                  <div className="w-full">
+                    <div className="formgrid grid p-fluid">
+                      <div className={`field ${classForm}`}>
+                        <label htmlFor="personasDependientes">
+                          ¿Cuántas personas dependen económicamente de usted?
+                        </label>
+                        <Dropdown
+                          id="personasDependientes"
+                          value={form.personasDependientes}
+                          options={opcionesDependientes}
+                          onChange={(e) =>
+                            handleDropdownChange(
+                              "personasDependientes",
+                              e.value
+                            )
+                          }
+                          placeholder="Seleccione cantidad"
+                          required
+                          className={`w-full mb-1 ${invalidClass(
+                            "personasDependientes"
+                          )}`}
+                        />
+                        {errorMsg("personasDependientes")}
+                      </div>
+                      {form.personasDependientes > 0 && (
+                        <div className={`field ${classForm}`}>
+                          <label>
+                            Rango de edad de las personas que dependen
+                            económicamente de usted
+                          </label>
+                          <div className="flex flex-column gap-2 mt-2">
+                            {opcionesRangoEdad.map((op) => (
+                              <div
+                                key={op.value}
+                                className="flex align-items-center"
+                              >
+                                <Checkbox
+                                  inputId={"rango_" + op.value}
+                                  name="rangosEdadDependientes"
+                                  value={op.value}
+                                  onChange={(e) => {
+                                    const selected =
+                                      form.rangosEdadDependientes || [];
+                                    if (e.checked) {
+                                      handleDropdownChange(
+                                        "rangosEdadDependientes",
+                                        [...selected, op.value]
+                                      );
+                                    } else {
+                                      handleDropdownChange(
+                                        "rangosEdadDependientes",
+                                        selected.filter((v) => v !== op.value)
+                                      );
+                                    }
+                                  }}
+                                  checked={
+                                    form.rangosEdadDependientes &&
+                                    form.rangosEdadDependientes.includes(
+                                      op.value
+                                    )
+                                  }
+                                />
+                                <label
+                                  htmlFor={"rango_" + op.value}
+                                  className="ml-2"
+                                >
+                                  {op.label}
+                                </label>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      {errors.rangosEdadDependientes && (
+                        <small
+                          className="p-error"
+                          style={{
+                            display: "block",
+                            marginTop: "-4px",
+                            marginBottom: "8px",
+                          }}
+                        >
+                          {errors.rangosEdadDependientes}
+                        </small>
+                      )}
+                      <div className={`field ${classForm}`}>
+                        <label htmlFor="nombreContacto">
+                          Por favor indique el nombre de una persona de contacto
+                        </label>
+                        <InputText
+                          id="nombreContacto"
+                          name="nombreContacto"
+                          type="text"
+                          value={form.nombreContacto}
+                          className={`w-full mb-1 ${invalidClass(
+                            "nombreContacto"
+                          )}`}
+                          onChange={handleChange}
+                          placeholder="Nombre de contacto"
+                          required
+                        />
+                        {errorMsg("nombreContacto")}
+                      </div>
+                      <div className={`field ${classForm}`}>
+                        <label htmlFor="telefonoContacto">
+                          Número de celular de la persona de contacto
+                        </label>
+                        <InputText
+                          id="celularContacto"
+                          name="celularContacto"
+                          type="text"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          value={form.celularContacto}
+                          className={`w-full mb-1 ${invalidClass(
+                            "celularContacto"
+                          )}`}
+                          onChange={(e) =>
+                            handleChange({
+                              target: {
+                                name: "celularContacto",
+                                value: sanitizePhone(e.target.value),
+                              },
+                            })
+                          }
+                          placeholder="Celular de contacto"
+                          maxLength={10}
+                          minLength={10}
+                          required
+                        />
+                        {errorMsg("celularContacto")}
+                      </div>
+                      {/* RadioButton interés en carrera técnica/tecnológica/profesional */}
+                      <div
+                        className={`field ${classForm} ${
+                          errors.interesCarrera ? "p-invalid" : ""
+                        }`}
+                      >
+                        <label>
+                          ¿Usted o alguien de su núcleo familiar está interesado
+                          en realizar una carrera técnica, tecnológica y/o
+                          profesional?
+                        </label>
+                        <div className="flex align-items-center gap-3 mt-2 justify-content-center">
+                          <RadioButton
+                            inputId="interesCarreraSi"
+                            name="interesCarrera"
+                            value="si"
+                            onChange={(e) =>
+                              handleDropdownChange("interesCarrera", e.value)
+                            }
+                            checked={form.interesCarrera === "si"}
+                            required
+                          />
+                          <label htmlFor="interesCarreraSi" className="mr-3">
+                            Sí
+                          </label>
+                          <RadioButton
+                            inputId="interesCarreraNo"
+                            name="interesCarrera"
+                            value="no"
+                            onChange={(e) =>
+                              handleDropdownChange("interesCarrera", e.value)
+                            }
+                            checked={form.interesCarrera === "no"}
+                            required
+                          />
+                          <label htmlFor="interesCarreraNo">No</label>
+                        </div>
+                        {errorMsg("interesCarrera")}
+                      </div>
+                      <div
+                        className={`field ${classForm} ${
+                          errors.educacionSolidaria ? "p-invalid" : ""
+                        }`}
+                      >
+                        <label>¿Tiene educación solidaria certificada?</label>
+                        <div className="flex align-items-center gap-3 mt-2 justify-content-center">
+                          <RadioButton
+                            inputId="educacionSolidariaSi"
+                            name="educacionSolidaria"
+                            value="si"
+                            onChange={(e) =>
+                              handleDropdownChange(
+                                "educacionSolidaria",
+                                e.value
+                              )
+                            }
+                            checked={form.educacionSolidaria === "si"}
+                            required
+                          />
+                          <label
+                            htmlFor="educacionSolidariaSi"
+                            className="mr-3"
+                          >
+                            Sí
+                          </label>
+                          <RadioButton
+                            inputId="educacionSolidariaNo"
+                            name="educacionSolidaria"
+                            value="no"
+                            onChange={(e) =>
+                              handleDropdownChange(
+                                "educacionSolidaria",
+                                e.value
+                              )
+                            }
+                            checked={form.educacionSolidaria === "no"}
+                            required
+                          />
+                          <label htmlFor="educacionSolidariaNo">No</label>
+                        </div>
+                        {errorMsg("educacionSolidaria")}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex py-4 gap-2">
+                <Button
+                  label="Volver"
+                  severity="secondary"
+                  icon="pi pi-arrow-left"
+                  onClick={() => stepperRef.current.prevCallback()}
+                />
+                <Button
+                  label="Siguiente"
+                  icon="pi pi-arrow-right"
+                  iconPos="right"
+                  onClick={() => handleNext(2)}
+                />
+              </div>
+            </StepperPanel>
+
+
+
+
+
+            <div
+                          className={`field ${classForm} ${
+                            errors.interesCarrera ? "p-invalid" : ""
+                          }`}
+                        >
+                          <label>
+                            ¿Usted o alguien de su núcleo familiar está
+                            interesado en realizar una carrera técnica,
+                            tecnológica y/o profesional?
+                          </label>
+                          <div className="flex align-items-center gap-3 mt-2 justify-content-center">
+                            <RadioButton
+                              inputId="interesCarreraExtraSi"
+                              name="interesCarrera"
+                              value="si"
+                              onChange={(e) =>
+                                handleDropdownChange("interesCarrera", e.value)
+                              }
+                              checked={form.interesCarrera === "si"}
+                              required
+                            />
+                            <label
+                              htmlFor="interesCarreraExtraSi"
+                              className="mr-3"
+                            >
+                              Sí
+                            </label>
+                            <RadioButton
+                              inputId="interesCarreraExtraNo"
+                              name="interesCarrera"
+                              value="no"
+                              onChange={(e) =>
+                                handleDropdownChange("interesCarrera", e.value)
+                              }
+                              checked={form.interesCarrera === "no"}
+                              required
+                            />
+                            <label htmlFor="interesCarreraExtraNo">No</label>
+                          </div>
+                          {errorMsg("interesCarrera")}
+                        </div>
+                        <div
+                          className={`field ${classForm} ${
+                            errors.emprendimientoActual ? "p-invalid" : ""
+                          }`}
+                        >
+                          <label>
+                            ¿Usted o alguien de su núcleo familiar tiene un
+                            emprendimiento en la actualidad?
+                          </label>
+                          <div className="flex align-items-center gap-3 mt-2 justify-content-center">
+                            <RadioButton
+                              inputId="emprendimientoSi"
+                              name="emprendimientoActual"
+                              value="si"
+                              onChange={(e) =>
+                                handleDropdownChange(
+                                  "emprendimientoActual",
+                                  e.value
+                                )
+                              }
+                              checked={form.emprendimientoActual === "si"}
+                              required
+                            />
+                            <label htmlFor="emprendimientoSi" className="mr-3">
+                              Sí
+                            </label>
+                            <RadioButton
+                              inputId="emprendimientoNo"
+                              name="emprendimientoActual"
+                              value="no"
+                              onChange={(e) =>
+                                handleDropdownChange(
+                                  "emprendimientoActual",
+                                  e.value
+                                )
+                              }
+                              checked={form.emprendimientoActual === "no"}
+                              required
+                            />
+                            <label htmlFor="emprendimientoNo">No</label>
+                          </div>
+                          {errorMsg("emprendimientoActual")}
+                        </div>
+                        {form.emprendimientoActual === "si" && (
+                          <div className={`field ${classForm}`}>
+                            <label
+                              htmlFor="emprendimientoTipo"
+                              className="block mb-2"
+                            >
+                              ¿Qué tipo de emprendimiento tiene?
+                            </label>
+                            <InputText
+                              id="emprendimientoTipo"
+                              name="emprendimientoTipo"
+                              type="text"
+                              value={form.emprendimientoTipo}
+                              className={`w-full ${invalidClass(
+                                "emprendimientoTipo"
+                              )}`}
+                              onChange={handleChange}
+                              placeholder="Ej: Venta de alimentos, artesanías, servicios, etc."
+                            />
+                            {errorMsg("emprendimientoTipo")}
+                          </div>
+                        )}
+
+                        <div className={`field ${classForm}`}>
+                          <label htmlFor="temasEducativos">
+                            ¿Qué temas educativos son de su interés?
+                          </label>
+                          <MultiSelect
+                            id="temasEducativos"
+                            name="temasEducativos"
+                            value={form.temasEducativos || []}
+                            options={[
+                              {
+                                label: "Educación Financiera",
+                                value: "educacion_financiera",
+                              },
+                              {
+                                label: "Cursos de Economía Solidaria",
+                                value: "economia_solidaria",
+                              },
+                              {
+                                label: "Emprendimiento",
+                                value: "emprendimiento",
+                              },
+                              {
+                                label: "Manejo de Emociones",
+                                value: "manejo_emociones",
+                              },
+                              { label: "Otro", value: "otro" },
+                            ]}
+                            onChange={(e) =>
+                              handleDropdownChange("temasEducativos", e.value)
+                            }
+                            placeholder="Seleccione uno o varios temas"
+                            className="w-full"
+                            display="chip"
+                          />
+                        </div>
+                        {form.temasEducativos?.includes("otro") && (
+                          <div className={`field ${classForm}`}>
+                            <label
+                              htmlFor="temasEducativosOtro"
+                              className="block mb-2"
+                            >
+                              Especifique el otro tema
+                            </label>
+                            <InputText
+                              id="temasEducativosOtro"
+                              name="temasEducativosOtro"
+                              type="text"
+                              className={`w-full ${invalidClass(
+                                "temasEducativosOtro"
+                              )}`}
+                              value={form.temasEducativosOtro}
+                              onChange={handleChange}
+                              placeholder="Describa el tema de su interés"
+                            />
+                            {errorMsg("temasEducativosOtro")}
+                          </div>
+                        )}
+                        <div className={`field ${classForm}`}>
+                          <label htmlFor="conveniosConocidos">
+                            De los siguientes convenios, ¿cuáles conoce y/o ha
+                            utilizado?
+                          </label>
+                          <MultiSelect
+                            id="conveniosConocidos"
+                            name="conveniosConocidos"
+                            value={form.conveniosConocidos || []}
+                            options={convenioOptions}
+                            onChange={(e) =>
+                              handleDropdownChange(
+                                "conveniosConocidos",
+                                e.value
+                              )
+                            }
+                            placeholder="Seleccione uno o varios convenios"
+                            className="w-full"
+                            display="chip"
+                          />
+                        </div>
+                        <div
+                          className={`field ${classForm} ${
+                            errors.conoceAccesoConvenios ? "p-invalid" : ""
+                          }`}
+                        >
+                          <label>
+                            ¿Conoce cómo acceder a los convenios que ofrece
+                            FONDEXPRESS?
+                          </label>
+                          <div className="flex align-items-center gap-3 mt-2 justify-content-center">
+                            <RadioButton
+                              inputId="conoceAccesoConveniosSi"
+                              name="conoceAccesoConvenios"
+                              value="si"
+                              onChange={(e) =>
+                                handleDropdownChange(
+                                  "conoceAccesoConvenios",
+                                  e.value
+                                )
+                              }
+                              checked={form.conoceAccesoConvenios === "si"}
+                              required
+                            />
+                            <label
+                              htmlFor="conoceAccesoConveniosSi"
+                              className="mr-3"
+                            >
+                              Sí
+                            </label>
+                            <RadioButton
+                              inputId="conoceAccesoConveniosNo"
+                              name="conoceAccesoConvenios"
+                              value="no"
+                              onChange={(e) =>
+                                handleDropdownChange(
+                                  "conoceAccesoConvenios",
+                                  e.value
+                                )
+                              }
+                              checked={form.conoceAccesoConvenios === "no"}
+                              required
+                            />
+                            <label htmlFor="conoceAccesoConveniosNo">No</label>
+                          </div>
+                          {errorMsg("conoceAccesoConvenios")}
+                        </div>
+                        <div
+                          className={`field ${classForm} ${
+                            errors.conoceClubTocaima ? "p-invalid" : ""
+                          }`}
+                        >
+                          <label>
+                            ¿Conoce el Club FONDEXPRESS ubicado en Tocaima?
+                          </label>
+                          <div className="flex align-items-center gap-3 mt-2 justify-content-center">
+                            <RadioButton
+                              inputId="conoceClubTocaimaSi"
+                              name="conoceClubTocaima"
+                              value="si"
+                              onChange={(e) =>
+                                handleDropdownChange(
+                                  "conoceClubTocaima",
+                                  e.value
+                                )
+                              }
+                              checked={form.conoceClubTocaima === "si"}
+                              required
+                            />
+                            <label
+                              htmlFor="conoceClubTocaimaSi"
+                              className="mr-3"
+                            >
+                              Sí
+                            </label>
+                            <RadioButton
+                              inputId="conoceClubTocaimaNo"
+                              name="conoceClubTocaima"
+                              value="no"
+                              onChange={(e) =>
+                                handleDropdownChange(
+                                  "conoceClubTocaima",
+                                  e.value
+                                )
+                              }
+                              checked={form.conoceClubTocaima === "no"}
+                              required
+                            />
+                            <label htmlFor="conoceClubTocaimaNo">No</label>
+                          </div>
+                          {errorMsg("conoceClubTocaima")}
+                        </div>
