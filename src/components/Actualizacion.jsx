@@ -37,6 +37,7 @@ const Actualizacion = (model) => {
     { label: "Cédula de ciudadanía", value: "CC" },
     { label: "Cédula de extranjería", value: "CE" },
     { label: "Permiso por Protección Temporal", value: "PPT" },
+    { label: "Número Único de Identificación Personal (Tarjetade identidad)", value: "NUIP" },
   ];
   const tiposIdentificacionAbreviado = [
     { label: "CC", value: "CC" },
@@ -3561,7 +3562,7 @@ const Actualizacion = (model) => {
                   />
                 </div>
               </StepperPanel>
-              <StepperPanel header="Información de Referencia y Beneficiarios">
+              <StepperPanel header="Información de Referencias familiares">
                 <div
                   className={`flex flex-column ${
                     isPanelLocked(4) ? "panel-locked" : ""
@@ -3574,7 +3575,7 @@ const Actualizacion = (model) => {
                         <div className="col-12 compact-form">
                           <div className="flex align-items-center justify-content-between mb-2">
                             <h3 className="mr-5" style={{ fontSize: "1rem" }}>
-                              Beneficiarios
+                              Referencias familiares
                             </h3>
                             <Button
                               icon="pi pi-plus"
@@ -3898,7 +3899,7 @@ const Actualizacion = (model) => {
                         {/* Referencia: tipo, nombres y celular */}
                         <div className="col-12 text-left">
                           <h3 className="mr-5" style={{ fontSize: "1rem" }}>
-                            Referencia
+                            Referencia personal
                           </h3>
                         </div>
                         <div className={`pl-2 field ${classForm}`}>
