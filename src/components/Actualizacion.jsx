@@ -370,30 +370,26 @@ const Actualizacion = (model) => {
   const handleFinalizarClick = () => {
     setSaving(true);
     // if (saving) return;
-    // Pre-validación específica de beneficiarios: al menos 1 y total 100%
+    // Pre-validación específica de referencias familiares: al menos 1
     const rows = Array.isArray(form.beneficiarios) ? form.beneficiarios : [];
-    const total = rows.reduce(
-      (acc, r) => acc + (parseFloat(r.porcentaje) || 0),
-      0
-    );
 
     if (rows.length === 0) {
       setErrors((prev) => ({
         ...prev,
-        beneficiarios: "Agregue al menos un beneficiario",
+        beneficiarios: "Agregue al menos una referencia familiar",
       }));
       setSaving(false);
       confirmDialog({
-        message: "Debe agregar al menos un beneficiario.",
+        message: "Debe agregar al menos una referencia familiar.",
         header: "Validación",
         icon: "pi pi-info-circle",
         acceptLabel: "Entendido",
         rejectClassName: "hidden",
         defaultFocus: "accept",
       });
-      // Enfocar bloque de beneficiarios
+      // Enfocar bloque de referencias
       setTimeout(() => {
-        const el = document.getElementById("beneficiariosPorcentajeTotal");
+        const el = document.getElementById("beneficiariosSection");
         if (el && el.scrollIntoView)
           el.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 50);
@@ -403,34 +399,34 @@ const Actualizacion = (model) => {
       let msj = "";
       rows.forEach((b, i) => {
         if (b.nombres == "" || !b.nombres) {
-          msj += "Nombre de beneficiario requerido (" + i + ")\n";
+          msj += "Nombre de referencia familiar requerido (" + (i + 1) + ")\n";
         }
         if (b.numero == "" || !b.numero) {
           msj +=
-            "Número de identificación del beneficiario requerido (" +
+            "Número de identificación requerido (" +
             (i + 1) +
             ")\n";
         }
         if (b.parentesco == "" || !b.parentesco) {
-          msj += "Parentesco del beneficiario requerido (" + (i + 1) + ")\n";
+          msj += "Parentesco requerido (" + (i + 1) + ")\n";
         }
 
         if (!b.fechaNacimiento || normalizeDate(b.fechaNacimiento) == "") {
           msj +=
-            "Fecha de nacimiento del beneficiario requerido (" +
+            "Fecha de nacimiento requerida (" +
             (i + 1) +
             ")\n";
         }
 
         if (b.tipo == "" || !b.tipo) {
           msj +=
-            "Tipo de identificación del beneficiario requerido (" +
+            "Tipo de identificación requerido (" +
             (i + 1) +
             ")\n";
         }
         if (b.pep == "" || !b.pep) {
           msj +=
-            "Persona expuesta políticamente del beneficiario requerido (" +
+            "Persona expuesta políticamente requerido (" +
             (i + 1) +
             ")\n";
         }
@@ -439,34 +435,12 @@ const Actualizacion = (model) => {
         setSaving(false);
         setErrors((prev) => ({
           ...prev,
-          beneficiariosPorcentajeTotal: (
+          beneficiarios: (
             <span style={{ whiteSpace: "pre-line" }}>{msj}</span>
           ),
         }));
         return;
       }
-    }
-    if (total !== 100) {
-      setSaving(false);
-      setErrors((prev) => ({
-        ...prev,
-        beneficiariosPorcentajeTotal: "El porcentaje total debe sumar 100%",
-      }));
-      confirmDialog({
-        message: `El porcentaje total de beneficiarios debe sumar 100%. Actualmente suma ${total}%`,
-        header: "Validación",
-        icon: "pi pi-exclamation-triangle",
-        acceptLabel: "Entendido",
-        rejectClassName: "hidden",
-        defaultFocus: "accept",
-      });
-      // Enfocar bloque de beneficiarios
-      setTimeout(() => {
-        const el = document.getElementById("beneficiariosPorcentajeTotal");
-        if (el && el.scrollIntoView)
-          el.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 50);
-      return;
     }
     // Validar antes de confirmar
     if (!validatePanel(4)) {
@@ -763,6 +737,14 @@ const Actualizacion = (model) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form?.ciudadNacimiento]);
 
+  // Establecer tipoReferencia como 'personal' por defecto si está vacío
+  useEffect(() => {
+    if (!form?.tipoReferencia) {
+      updateField("tipoReferencia", "personal");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // --- Beneficiarios: helpers para tabla dinámica ---
   const addBeneficiario = () => {
     const rows = Array.isArray(form.beneficiarios)
@@ -774,7 +756,6 @@ const Actualizacion = (model) => {
       fechaNacimiento: null,
       tipo: "",
       numero: "",
-      porcentaje: "",
       pep: "", // 'si' | 'no'
     });
     handleChange({ target: { name: "beneficiarios", value: rows } });
@@ -3604,7 +3585,6 @@ const Actualizacion = (model) => {
                                   <th>Fecha de nacimiento</th>
                                   <th>Tipo</th>
                                   <th>#Documento</th>
-                                  <th>%</th>
                                   <th>
                                     <span
                                       className="flex align-items-center gap-2"
@@ -3645,14 +3625,14 @@ const Actualizacion = (model) => {
                                 {(form.beneficiarios || []).length === 0 ? (
                                   <tr>
                                     <td
-                                      colSpan={8}
+                                      colSpan={7}
                                       style={{
                                         textAlign: "center",
                                         padding: "0.75rem",
                                         color: "#666",
                                       }}
                                     >
-                                      No hay beneficiarios agregados
+                                      No hay referencias familiares agregadas
                                     </td>
                                   </tr>
                                 ) : (
@@ -3746,60 +3726,6 @@ const Actualizacion = (model) => {
                                           className="w-full"
                                         />
                                       </td>
-                                      <td
-                                        style={{
-                                          padding: "0.5rem",
-                                          minWidth: "100px",
-                                        }}
-                                      >
-                                        <InputText
-                                          value={row.porcentaje || ""}
-                                          onChange={(e) => {
-                                            // Limpiar caracteres no numéricos
-                                            let v = e.target.value.replace(
-                                              /[^\d]/g,
-                                              ""
-                                            );
-                                            if (v === "") {
-                                              return updateBeneficiarioField(
-                                                idx,
-                                                "porcentaje",
-                                                ""
-                                              );
-                                            }
-                                            let n = parseInt(v, 10);
-                                            if (isNaN(n)) n = 0;
-                                            if (n < 0) n = 0;
-                                            if (n > 100) n = 100;
-
-                                            // Calcular el porcentaje disponible para esta fila
-                                            const otros = (
-                                              form.beneficiarios || []
-                                            ).reduce((acc, r, j) => {
-                                              if (j === idx) return acc;
-                                              const pv = parseInt(
-                                                r?.porcentaje ?? 0,
-                                                10
-                                              );
-                                              return acc + (isNaN(pv) ? 0 : pv);
-                                            }, 0);
-                                            const maxParaEsta = Math.max(
-                                              0,
-                                              100 - otros
-                                            );
-                                            n = Math.min(n, maxParaEsta);
-
-                                            updateBeneficiarioField(
-                                              idx,
-                                              "porcentaje",
-                                              String(n)
-                                            );
-                                          }}
-                                          inputMode="numeric"
-                                          placeholder="0-100"
-                                          className="w-full"
-                                        />
-                                      </td>
                                       <td style={{ padding: "0.5rem" }}>
                                         <div className="flex align-items-center gap-3 justify-content-center">
                                           <RadioButton
@@ -3861,38 +3787,15 @@ const Actualizacion = (model) => {
                                 )}
                               </tbody>
                             </table>
-                            {/* Total porcentaje beneficiarios */}
                             <div
-                              id="beneficiariosPorcentajeTotal"
-                              className="mt-2 text-right"
+                              id="beneficiariosSection"
+                              className="mt-2"
                             >
-                              {(() => {
-                                const rows = Array.isArray(form.beneficiarios)
-                                  ? form.beneficiarios
-                                  : [];
-                                const total = rows.reduce(
-                                  (acc, r) =>
-                                    acc + (parseFloat(r.porcentaje) || 0),
-                                  0
-                                );
-                                return (
-                                  <>
-                                    <strong>
-                                      Total porcentaje:&nbsp;{total}%
-                                    </strong>
-                                    {errors.beneficiariosPorcentajeTotal && (
-                                      <small className="p-error ml-2">
-                                        {errors.beneficiariosPorcentajeTotal}
-                                      </small>
-                                    )}
-                                    {errors.beneficiarios && (
-                                      <small className="p-error ml-2">
-                                        {errors.beneficiarios}
-                                      </small>
-                                    )}
-                                  </>
-                                );
-                              })()}
+                              {errors.beneficiarios && (
+                                <small className="p-error">
+                                  {errors.beneficiarios}
+                                </small>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -3902,7 +3805,7 @@ const Actualizacion = (model) => {
                             Referencia personal
                           </h3>
                         </div>
-                        <div className={`pl-2 field ${classForm}`}>
+                        <div className={`pl-2 field ${classForm}`} style={{ display: 'none' }}>
                           <label className="block mb-2">
                             Tipo de referencia
                           </label>
@@ -3915,7 +3818,6 @@ const Actualizacion = (model) => {
                                 handleDropdownChange("tipoReferencia", e.value)
                               }
                               checked={form.tipoReferencia === "familiar"}
-                              required
                             />
                             <label
                               htmlFor="tipoReferenciaFamiliar"
@@ -3931,7 +3833,6 @@ const Actualizacion = (model) => {
                                 handleDropdownChange("tipoReferencia", e.value)
                               }
                               checked={form.tipoReferencia === "personal"}
-                              required
                             />
                             <label htmlFor="tipoReferenciaPersonal">
                               Personal
