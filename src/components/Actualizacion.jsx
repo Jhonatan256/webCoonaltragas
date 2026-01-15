@@ -97,6 +97,15 @@ const Actualizacion = (model) => {
     { label: "Otro", value: "otro" },
   ];
 
+  const tiposSolicitante = [
+    { label: "Cliente", value: "cliente" },
+    { label: "Asociado", value: "asociado" },
+    { label: "Vinculado", value: "vinculado" },
+    { label: "Contratista", value: "contratista" },
+    { label: "Empleado", value: "empleado" },
+    { label: "Proveedor", value: "proveedor" },
+  ];
+
   const { formData: form, updateField, bulkUpdate, resetForm } = useFormData();
   const [errors, setErrors] = useState({});
   const [lockedPanels, setLockedPanels] = useState([]); // indices bloqueados
@@ -838,6 +847,7 @@ const Actualizacion = (model) => {
     switch (index) {
       case 0: // Datos personales
         [
+          "tipoSolicitante",
           "tipoIdentificacion",
           "primerNombre",
           "primerApellido",
@@ -1753,6 +1763,30 @@ const Actualizacion = (model) => {
                       {" "}
                       {/* placeholder */}
                       <div className="formgrid grid p-fluid">
+
+                        <div className={`field ${classForm}`}>
+                          <label htmlFor="tipoSolicitante">
+                            Tipo de solicitante
+                          </label>
+                          <Dropdown
+                            id="tipoSolicitante"
+                            value={form.tipoSolicitante}
+                            options={tiposSolicitante}
+                            onChange={(e) =>
+                              handleDropdownChange(
+                                "tipoSolicitante",
+                                e.value
+                              )
+                            }
+                            placeholder="Seleccione tipo"
+                            required
+                            className={`w-full mb-1 ${invalidClass(
+                              "tipoSolicitante"
+                            )}`}
+                          />
+                          {errorMsg("tipoSolicitante")}
+                        </div>
+                      
                         <div className={`field ${classForm}`}>
                           <label htmlFor="tipoIdentificacion">
                             Tipo de identificación
