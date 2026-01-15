@@ -1654,7 +1654,7 @@ const Actualizacion = (model) => {
       >
         <div className="flex align-items-center gap-2">
           <img
-            src="/img/LOGO_FONDEXPRESS_FND-1.png"
+            src="/img/LOGO_COONALTRAGAS_FND-1.png"
             alt="Logo"
             style={{ height: "48px" }}
           />

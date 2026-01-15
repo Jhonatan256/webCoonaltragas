@@ -47,7 +47,7 @@ export default function AppMenubar() {
   const start = (
     <img
       alt="logo"
-      src="/img/LOGO_FONDEXPRESS_FND-1.png"
+      src="/img/LOGO_COONALTRAGAS_FND-1.png"
       height="40"
       className="mr-2"
     />

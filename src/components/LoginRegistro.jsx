@@ -84,12 +84,12 @@ const LoginRegistro = ({ loginRegister }) => {
     <div className="login-wrapper">
       <div className="card login-card-custom">
         <img
-          src="/img/LOGO_FONDEXPRESS_FND-1.png"
+          src="/img/LOGO_COONALTRAGAS_FND-1.png"
           alt="Logo"
           className="login-logo"
         />
         <h1 className="login-title">
-          ¡Afíliate a FONDEXPRESS, desde cualquier lugar!
+          ¡Afíliate a COONALTRAGAS, desde cualquier lugar!
         </h1>
         <form
           className="login-form-center mt-0 pt-0"

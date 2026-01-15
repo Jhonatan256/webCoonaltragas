@@ -162,11 +162,11 @@ export default function Login({ onSubmit }) {
       <Toast ref={toastRef} />
       <Card className="login-card-custom">
         <img
-          src="/img/LOGO_FONDEXPRESS_FND-1.png"
-          alt="Fondexpress"
+          src="/img/LOGO_COONALTRAGAS_FND-1.png"
+          alt="COONALTRAGAS"
           className="login-logo"
         />
-        <h1 className="login-title">Ingreso Empleados a Fondexpress</h1>
+        <h1 className="login-title">Ingreso Empleados a COONALTRAGAS</h1>
         <p className="login-subtitle text-center">
           Ingresa con tu usuario y contraseña para acceder al sistema.
         </p>

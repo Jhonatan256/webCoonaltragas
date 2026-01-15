@@ -246,7 +246,7 @@ export default function FirmaManuscrita({
                 1. Objeto La presente política tiene como finalidad regular el
                 proceso de captura, almacenamiento y uso de las firmas
                 manuscritas digitales registradas por los usuarios dentro del
-                sistema de información de <b>Fondexpress</b>.
+                sistema de información de <b>COONALTRAGAS</b>.
               </p>
               <p>
                 2. Alcance Aplica a todos los usuarios que, en el marco de los
@@ -257,7 +257,7 @@ export default function FirmaManuscrita({
               <p>
                 3. Consentimiento informado Al realizar la firma digital
                 manuscrita, el usuario autoriza expresamente a
-                &nbsp;<b>Fondexpress</b> para capturar, almacenar y asociar dicha
+                &nbsp;<b>COONALTRAGAS</b> para capturar, almacenar y asociar dicha
                 firma al documento o transacción correspondiente. El usuario
                 reconoce que esta firma tiene validez equivalente a una firma
                 manuscrita física, de conformidad con la Ley 527 de 1999 y las
@@ -276,7 +276,7 @@ export default function FirmaManuscrita({
                 almacenará de forma cifrada y asociada únicamente al registro o
                 documento correspondiente. No será compartida con terceros,
                 salvo requerimiento legal o autorización expresa del titular.
-                &nbsp;<b>Fondexpress</b> implementa medidas de seguridad
+                &nbsp;<b>COONALTRAGAS</b> implementa medidas de seguridad
                 administrativas, técnicas y legales para proteger la integridad
                 y confidencialidad de las firmas capturadas.
               </p>

@@ -83,12 +83,12 @@ const LoginActualizacion = ({ loginUpdate }) => {
     <div className="login-wrapper">
       <div className="card login-card-custom">
         <img
-          src="/img/LOGO_FONDEXPRESS_FND-1.png"
+          src="/img/LOGO_COONALTRAGAS_FND-1.png"
           alt="Logo"
           className="login-logo"
         />
         <h1 className="login-title">
-          ¡Actualiza tus datos con FONDEXPRESS!
+          ¡Actualiza tus datos con COONALTRAGAS!
         </h1>
         <p className="login-subtitle">{/* prueba */}</p>
         <form className="login-form-center" onSubmit={handleSubmit} noValidate>
